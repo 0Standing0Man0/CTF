@@ -1,0 +1,5 @@
+[+] Salt for password found: 10E
+[+] Username found: mitcw
+[+] Email found: adminG
+[+] Password found: 0t
+
