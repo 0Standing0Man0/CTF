@@ -1,0 +1,141 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.28
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[32m[+][0m URL: http://www.smol.thm/ [10.201.22.112]
+[32m[+][0m Started: Fri Oct 24 12:33:53 2025
+
+Interesting Finding(s):
+
+[32m[+][0m Headers
+ | Interesting Entry: Server: Apache/2.4.41 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[32m[+][0m XML-RPC seems to be enabled: http://www.smol.thm/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[32m[+][0m WordPress readme found: http://www.smol.thm/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m Upload directory has listing enabled: http://www.smol.thm/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m The external WP-Cron seems to be enabled: http://www.smol.thm/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[32m[+][0m WordPress version 6.7.1 identified (Insecure, released on 2024-11-21).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://www.smol.thm/index.php/feed/, <generator>https://wordpress.org/?v=6.7.1</generator>
+ |  - http://www.smol.thm/index.php/comments/feed/, <generator>https://wordpress.org/?v=6.7.1</generator>
+ |
+ | [31m[!][0m 2 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: WP < 6.8.3 - Author+ DOM Stored XSS
+ |     Fixed in: 6.7.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/c4616b57-770f-4c40-93f8-29571c80330a
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-58674
+ |      - https://patchstack.com/database/wordpress/wordpress/wordpress/vulnerability/wordpress-wordpress-wordpress-6-8-2-cross-site-scripting-xss-vulnerability
+ |      -  https://wordpress.org/news/2025/09/wordpress-6-8-3-release/
+ |
+ | [31m[!][0m Title: WP < 6.8.3 - Contributor+ Sensitive Data Disclosure
+ |     Fixed in: 6.7.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/1e2dad30-dd95-4142-903b-4d5c580eaad2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-58246
+ |      - https://patchstack.com/database/wordpress/wordpress/wordpress/vulnerability/wordpress-wordpress-wordpress-6-8-2-sensitive-data-exposure-vulnerability
+ |      - https://wordpress.org/news/2025/09/wordpress-6-8-3-release/
+
+[32m[+][0m WordPress theme in use: twentytwentythree
+ | Location: http://www.smol.thm/wp-content/themes/twentytwentythree/
+ | Last Updated: 2024-11-13T00:00:00.000Z
+ | Readme: http://www.smol.thm/wp-content/themes/twentytwentythree/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 1.6
+ | [31m[!][0m Directory listing is enabled
+ | Style URL: http://www.smol.thm/wp-content/themes/twentytwentythree/style.css
+ | Style Name: Twenty Twenty-Three
+ | Style URI: https://wordpress.org/themes/twentytwentythree
+ | Description: Twenty Twenty-Three is designed to take advantage of the new design tools introduced in WordPress 6....
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | Version: 1.2 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://www.smol.thm/wp-content/themes/twentytwentythree/style.css, Match: 'Version: 1.2'
+
+[32m[+][0m Enumerating All Plugins (via Passive Methods)
+[32m[+][0m Checking Plugin Versions (via Passive and Aggressive Methods)
+
+[34m[i][0m Plugin(s) Identified:
+
+[32m[+][0m jsmol2wp
+ | Location: http://www.smol.thm/wp-content/plugins/jsmol2wp/
+ | Latest Version: 1.07 (up to date)
+ | Last Updated: 2018-03-09T10:28:00.000Z
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | [31m[!][0m 2 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: JSmol2WP <= 1.07 - Unauthenticated Cross-Site Scripting (XSS)
+ |     References:
+ |      - https://wpscan.com/vulnerability/0bbf1542-6e00-4a68-97f6-48a7790d1c3e
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20462
+ |      - https://www.cbiu.cc/2018/12/WordPress%E6%8F%92%E4%BB%B6jsmol2wp%E6%BC%8F%E6%B4%9E/#%E5%8F%8D%E5%B0%84%E6%80%A7XSS
+ |
+ | [31m[!][0m Title: JSmol2WP <= 1.07 - Unauthenticated Server Side Request Forgery (SSRF)
+ |     References:
+ |      - https://wpscan.com/vulnerability/ad01dad9-12ff-404f-8718-9ebbd67bf611
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20463
+ |      - https://www.cbiu.cc/2018/12/WordPress%E6%8F%92%E4%BB%B6jsmol2wp%E6%BC%8F%E6%B4%9E/#%E5%8F%8D%E5%B0%84%E6%80%A7XSS
+ |
+ | Version: 1.07 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://www.smol.thm/wp-content/plugins/jsmol2wp/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://www.smol.thm/wp-content/plugins/jsmol2wp/readme.txt
+
+[32m[+][0m Enumerating Config Backups (via Passive and Aggressive Methods)
+
+ Checking Config Backups -: |================================================================|
+
+[34m[i][0m No Config Backups Found.
+
+[32m[+][0m WPScan DB API OK
+ | Plan: free
+ | Requests Done (during the scan): 0
+ | Requests Remaining: 22
+
+[32m[+][0m Finished: Fri Oct 24 12:34:06 2025
+[32m[+][0m Requests Done: 141
+[32m[+][0m Cached Requests: 40
+[32m[+][0m Data Sent: 35.58 KB
+[32m[+][0m Data Received: 21.858 KB
+[32m[+][0m Memory used: 252.062 MB
+[32m[+][0m Elapsed time: 00:00:12
